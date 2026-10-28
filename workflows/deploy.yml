@@ -12,7 +12,6 @@ permissions:
 
 jobs:
   deploy:
-    name: Deploy website
     runs-on: ubuntu-latest
 
     steps:
@@ -25,7 +24,7 @@ jobs:
           role-to-assume: arn:aws:iam::488914879248:role/GitHubActionsS3DeployRole
           aws-region: ap-south-1
 
-      - name: Deploy files to S3
+      - name: Deploy website to S3
         run: |
           aws s3 sync . s3://my-first-aws-website-482731 \
             --delete \
